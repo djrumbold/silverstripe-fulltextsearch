@@ -1,11 +1,11 @@
 ---
 Name: defaultprocessor
 ---
-Injector:
-  SearchUpdateProcessor:
-    class: SearchUpdateImmediateProcessor
+SilverStripe\Core\Injector:
+  SilverStripe\FullTextSearch\Search\Processors\SearchUpdateProcessor:
+    class: SilverStripe\FullTextSearch\Search\Processors\SearchUpdateImmediateProcessor
   SolrReindexHandler:
-    class: SolrReindexImmediateHandler
+    class: SilverStripe\FullTextSearch\Solr\Reindex\Handlers\SolrReindexImmediateHandler
   SearchLogFactory:
     class: 'MonologFactory'
 ---
@@ -15,11 +15,11 @@ Only:
 Except:
   Environment: 'dev'
 ---
-Injector:
-  SearchUpdateProcessor:
-    class: SearchUpdateMessageQueueProcessor
+SilverStripe\Core\Injector:
+  SilverStripe\FullTextSearch\Search\Processors\SearchUpdateProcessor:
+    class: SilverStripe\FullTextSearch\Search\Processors\SearchUpdateMessageQueueProcessor
   SolrReindexHandler:
-    class: SolrReindexMessageHandler
+    class: SilverStripe\FullTextSearch\Solr\Reindex\Handlers\SolrReindexMessageHandler
 ---
 Name: queuedjobprocessor
 Only:
@@ -27,8 +27,8 @@ Only:
 Except:
   Environment: 'dev'
 ---
-Injector:
-  SearchUpdateProcessor:
-    class: SearchUpdateQueuedJobProcessor
+SilverStripe\Core\Injector:
+  SilverStripe\FullTextSearch\Search\Processors\SearchUpdateProcessor:
+    class: SilverStripe\FullTextSearch\Search\Processors\SearchUpdateQueuedJobProcessor
   SolrReindexHandler:
-    class: SolrReindexQueuedHandler
+    class: SilverStripe\FullTextSearch\Solr\Reindex\Handlers\SolrReindexQueuedHandler
